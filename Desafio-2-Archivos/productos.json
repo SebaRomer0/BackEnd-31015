@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "nombre":"Escuadra",
+        "precio":300,
+        "img":"https://upload.wikimedia.org/wikipedia/commons/3/3c/Squadra_45.jpg"
+    },
+    {
+        "id":2,
+        "nombre":"Calculadora",
+        "precio":500,
+        "img":"https://http2.mlstatic.com/D_NQ_NP_978839-MLA43556248580_092020-W.jpg"
+    },
+    {
+        "id":3,
+        "nombre":"Lapiz",
+        "precio":150,
+        "img":"https://img.freepik.com/vector-gratis/lapiz_24908-54630.jpg?w=2000"
+    }
+]

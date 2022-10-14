@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Carrito de Compra</title>
+</head> 
+<body>
+
+    <div class="container">
+        <div class="row">
+            <h1>Productos para Comprar</h1>  
+            <div class="col-lg-12">
+                <div class="row">
+                    <% if (Productos.length==0) { %>
+                        <h2>No hay Productos Cargados</h2>
+                        <% } else { %>
+                            <% Productos.forEach(element=> { %>
+                            <!-- <form action="/api/carrito/compra" method="post"> -->
+                                <div class="card text-center" style="width: 18rem;">
+                                    <img class="card-img-top" src="../img/camisa1.jpeg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h3 class="card-title">
+                                            <%= element.nombre %>
+                                        </h3>
+                                        <p class="card-text">
+                                            <%= element.descripcion %>
+                                        </p>
+                                        <p class="card-text"> <strong>Codigo</strong> 
+                                            <%= element.codigo %>
+                                        </p>
+                                        <p class="card-text"> <strong>Precio</strong> 
+                                            <%= element.precio %> $
+                                        </p>
+                                        <p class="card-text"> <strong>Stock</strong> 
+                                            <%= element.stock %>
+                                        </p>
+                                        <!-- <button type="submit" class="btn btn-primary p-3">Comprar</button> -->
+                                    </div>
+                                </div>
+                            <!-- </form> -->
+                            <% }); %>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+            <!-- ver si aca va el enlace para carrito -->
+            <a href="/api/producto" class="btn btn-primary">Ver Productos Disponibles</a>
+            
+            <!-- Ver si mas tarde lo dejo en la pagina o lo coloco en la parte de carrito -->
+            <a href="/api/carrito/compra" class="btn btn-primary" href="">Ver Carrito</a>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Cargue nuevos productos- Solo Administradores
+                    </div>
+                    <form action="/api/carrito/compra" method="post">
+                        <div class="card-body">
+                            <label class="form-label">ID</label>
+                            <input type="number" name="id" class="form-control" required>
+
+                            <label class="form-label">Nombre</label>
+                            <input type="text" name="nombre" class="form-control">
+
+                            <label class="form-label">Descripcion</label>
+                            <input type="text" name="descripcion" class="form-control">
+
+                            <label class="form-label">Codigo</label>
+                            <input type="number" name="codigo" class="form-control" required>
+
+                            <label class="form-label">Foto URL</label>
+                            <input type="url" name="url" class="form-control" required>
+
+                            <label class="form-label">Precio</label>
+                            <input type="number" name="precio" class="form-control">
+                            <br>
+                            <button type="submit" class="btn btn-primary p-3">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

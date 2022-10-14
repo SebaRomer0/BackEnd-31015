@@ -1,0 +1,25 @@
+[{
+    "email": "1",
+    "nombre": "pepepepe",
+    "apellido": "romero",
+    "edad": "34",
+    "alias": "RockandRoll",
+    "avatar": "Liooo",
+    "mensajes": "buenas Noches"
+}, {
+    "email": "2",
+    "nombre": "Sebastian",
+    "apellido": "romero",
+    "edad": "33",
+    "alias": "PEPE",
+    "avatar": "RickRock",
+    "mensajes": "Vamos avanzando bastante"
+}, {
+    "email": "chi@chi",
+    "nombre": "Don Pepe",
+    "apellido": "romero",
+    "edad": "33",
+    "alias": "rick",
+    "avatar": "rickRock",
+    "mensajes": "creo que por ahi va"
+}]

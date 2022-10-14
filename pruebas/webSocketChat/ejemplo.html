@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-window">
+            <div id="output"></div>
+            <div id="actions"></div>
+        </div>
+        <input type="text" id="username" placeholder="Username">
+        <input type="text" id="message" placeholder="Message">
+        <button id="send">Send</button>
+    </div>
+
+    <!-- 
+        mensaje de Chat en donde se va escribiendo un encima del otro
+        queda mas comodo
+
+        Son comando  de CSS  #input {
+            display:block;
+        }
+
+        #actions p{
+            los parafos tienen el color que le demos desde el css
+
+        }
+
+        Podes enviar mensaje a todos los Usuarios conectados y pintarlos en el HTML. Y esto va en el Server.js, pero en youtube lo ubica en otro lado
+
+        socket.on('chat:message', (data) => {
+            io.socket.emit('Chat:message', data)}
+
+        Luego en la parte de Index.js, colocar codigo para mostrar el contenido. refresco....minuto 55
+
+        socket.on('chat:message', function(data){
+            output.innerHTML += `<p>
+                <strong>${data.username}</strong>:${data.message}
+            </p>`
+        })
+
+
+
+    -->
+
+
+
+
+
+</body>
+</html>

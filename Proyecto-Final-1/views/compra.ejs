@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Productos Cargados para Comprar</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Productos para Comprar</h1>  
+            <div class="col-lg-12">
+                <div class="row">
+                    <% if (carritoBD.length==0) { %>
+                        <h2>No hay Productos Cargados</h2>
+                        <% } else { %>
+                            <% carritoBD.forEach(element=> { %>
+                                <div class="card text-center" style="width: 18rem;">
+                                    <img class="card-img-top" src="../img/camisa1.jpeg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h3 class="card-title">
+                                            <%= element.nombre %>
+                                        </h3>
+                                        <p class="card-text">
+                                            <%= element.descripcion %>
+                                        </p>
+                                        <p class="card-text"> <strong>Codigo</strong> 
+                                            <%= element.codigo %>
+                                        </p>
+                                        <p class="card-text"> <strong>Precio</strong> 
+                                            <%= element.precio %> $
+                                        </p>
+                                        <p class="card-text"> <strong>Stock</strong> 
+                                            <%= element.stock %>
+                                        </p>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+            <a href="/api/carrito" class="btn btn-primary">Ver Productos Disponibles</a>
+            
+            <a href="/api/carrito/compra" class="btn btn-primary" href="">Ver Carrito</a>
+        </div>
+
+    </div>
+    
+</body>
+</html>

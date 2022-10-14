@@ -1,0 +1,23 @@
+{
+  "name": "backend--31015",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebaRomer0/BackEnd--31015.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SebaRomer0/BackEnd--31015/issues"
+  },
+  "homepage": "https://github.com/SebaRomer0/BackEnd--31015#readme",
+  "dependencies": {
+    "mongoose": "^6.6.0"
+  }
+}

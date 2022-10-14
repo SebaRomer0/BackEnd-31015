@@ -1,0 +1,5 @@
+[
+    {"id":1, "nombre": "camisa-1", "descripcion": "Camisa de estacion Floreada", "codigo": 101001, "foto": "../../img/camisa1.jpeg", "precio": 1200, "stock": 3},
+    {"id":2, "nombre": "camisa-2", "descripcion": "Camisa de estacion Black/White", "codigo": 101002, "foto": "../../img/camisa2.jpeg", "precio": 1500, "stock": 2},
+    {"id":3, "nombre": "camisa-3", "descripcion": "Camisa Ocacional Neutra", "codigo": 101003, "foto": "../../img/camisa3.jpeg", "precio": 1000, "stock": 5}
+]
