@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Centro de Mensajes</title>
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Alias</th>
+                        <th>Avatar</th>
+                    </tr>
+                    <% if (data.length == 0) { %>
+                        <h1>No hay Productos Cargados</h1>
+                        <% } else { %>
+                            <% data.forEach(element=> { %>
+                                <tr>
+                                    <td><%= element.id %></td>
+                                    <td><%= element.nombre %></td>
+                                    <td><%= element.apellido %></td>
+                                    <td><%= element.edad %></td>
+                                    <td><%= element.alias %></td>
+                                    <td><%= element.avatar %></td>
+                                </tr>
+                                <% }); %>
+                            <% } %>
+                </table>
+                <table class="table table-striped text-center">
+                        <tr>
+                            <th>Mensajes</th>
+                        </tr>
+                        <tr>
+                            <% if (data.length == 0) { %>
+                                <h1>No hay Productos Cargados</h1>
+                                <% } else { %>
+                                    <% data.forEach(element=> { %>
+                                    <td><%= element.alias %></td>
+                                    <td><%= element.mensajes %></td>
+                        </tr>
+                                <% }); %>
+                            <% } %>
+                </table>
+            </div>
+        </div>
+
+        <a class="btn btn-primary" href="/api/formulario">Ir al Centro de Mensajes</a>
+
+
+
+
+        <!-- <div class="row">
+            <div class="col">
+    
+                <div class="card text-center">
+                    <h2>Centro de Mensajes</h2>
+                    <div class="card-body">
+                        <p class="card-text">
+                        <h3>Puede Hablar con los distintos Usuarios Conectados</h3>
+                        <%= data.id %>
+                        </p>
+                    </div>
+                    <div>
+                        <input type="email" id="userEmail" placeholder="Ingrese su Email">
+                        <input type="text" id="message" placeholder="Mensaje">
+                        <button class="btn btn-primary" id="sendSocket">Enviar</button>
+                    </div>
+                    <div id="chat"></div>
+                </div>
+            </div>
+        </div> -->
+
+        
+    </div>
+
+
+</body>
+</html>

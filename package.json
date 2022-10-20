@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/SebaRomer0/BackEnd--31015#readme",
   "dependencies": {
+    "express-session": "^1.17.3",
     "mongoose": "^6.6.0"
   }
 }
