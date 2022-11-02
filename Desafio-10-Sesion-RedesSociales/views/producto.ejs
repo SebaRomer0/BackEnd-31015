@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Centro de Mensajes</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h1>Desafio Inicio Sesion - Ingrese sus Datos</h1>
+                    </div>
+                    <div>
+                        <form action="/logout" method="get">
+                            <% if (mensaje) { %>
+                                <h2> Bienvenido <%= mensaje.username %>
+                                </h2>
+                                <% } %>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <button type="submit" class="btn btn-outline-danger">Desloguear</button>
+                                    </div>
+                        </form>
+                    </div>
+
+                    <form action="/api/mensajes" method="post">
+                        <div class="card-body">
+                            <label class="form-label">Nombre</label>
+                            <input id="name" type="text" name="name" class="form-control">
+
+                            <label class="form-label">Precio</label>
+                            <input id="price" type="number" name="price" class="form-control">
+
+                            <label class="form-label">Foto URL</label>
+                            <input id="foto" type="url" name="url" class="form-control">
+                            <br>
+                            <button type="submit" class="btn btn-primary p-3">Enviar</button>
+                        </div>
+                    </form>
+
+                    <a class="btn btn-primary" href="/api/mensajes">Ir a los Productos ya Almacenados</a>
+
+                    <div class="row">
+                        <div class="col">
+                            <table class="table table-striped text-center">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Foto</th>
+                                </tr>
+                                <% if (product.length==0) { %>
+                                    <h1>No hay Productos Cargados</h1>
+                                    <% } else { %>
+                                        <% product.forEach(element=> { %>
+                                            <tr>
+                                                <td>
+                                                    <%= element.id %>
+                                                </td>
+                                                <td>
+                                                    <%= element.nombre %>
+                                                </td>
+                                                <td>
+                                                    <%= element.precio %>
+                                                </td>
+                                                <td>
+                                                    <%= element.foto %>
+                                                </td>
+                                            </tr>
+                                            <% }); %>
+                                                <% } %>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
