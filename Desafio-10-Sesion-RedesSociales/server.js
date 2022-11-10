@@ -6,10 +6,17 @@ const mongoose = require('mongoose')
 const routes = require('./routes')
 const connectDB = require('./db')
 const Users = require('./model')
-const { application } = require('express')
+const { application, Router } = require('express')
 const Contenedor = require('./contenedor/contenedor')
+const http = require('http')
+const { fork } = require('child_process')
+const { match } = require('assert')
+const res = require('express/lib/response')
 
 
+// Configuracion para Consiga 3
+let visitas = 0
+const server = http.createServer()
 
 // BD
 const bd = new Contenedor('db.json')
@@ -68,12 +75,11 @@ app.set('views', './views')
 app.set('view engine', 'ejs')
 
 
-// Rutas
+//-------------------------- Rutas ------------------------------------
 
 
 // Inicio Bienvenida
 app.get('/', routes.getInicio)
-
 
 
 // Rutas Registro
@@ -86,12 +92,10 @@ app.post(
 )
 
 
-
 // Rutas Login
 app.get('/login', routes.getLogin)
 app.get('/error-login', routes.getFailLogin)
 app.post('/login', passport.authenticate('login', {failureRedirect: '/error-login'}), routes.getLogin)
-
 
 
 
@@ -103,6 +107,7 @@ const product = [
 ]
 
 app.get('/api/producto',passport.authenticate('signup', {failureRedirect: '/error-registro'}),passport.authenticate('login', {failureRedirect: '/error-login'}), (req,res) => {
+    
     req.session.usuario = req.query
 
     const mensaje = req.session.usuario
@@ -129,12 +134,6 @@ app.get('/api/mensajes', (req, res) => {
 })
 
 
-
-
-
-
-
-
 // Desloguear
 app.get('/logout', (req, res) => {
     const user = req.session.usuario
@@ -144,6 +143,7 @@ app.get('/logout', (req, res) => {
         else res.send({status: 'Error en la Sesion', body: err})
     })
 })
+
 
 
 

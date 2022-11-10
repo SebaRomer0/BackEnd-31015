@@ -28,10 +28,18 @@ function getFailSignup(req, res) {
 }
 
 
-// Productos
-function getProductos(req,res) {
+
+// Calculos Randoms
+function getRandoms(req,res) {
+    res.render('calculo')
+}
+
+function getCalculo(req,res) {
 
 }
+
+
+
 
 module.exports = {
     getInicio,
@@ -39,5 +47,7 @@ module.exports = {
     postSignup,
     getFailSignup,
     getLogin,
-    getFailLogin
+    getFailLogin,
+    getRandoms,
+    getCalculo
 }
