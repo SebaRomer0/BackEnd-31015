@@ -1,59 +1,40 @@
-const log4js = require('log4js')
-const express = require('express')
-const app = express()
+const express = require("express");
+const connectMongo = require("./config/bd");
+const passport = require("passport");
+const session = require("express-session");
+const bookRouter = require("./router/router");
 
-log4js.configure({
-    appenders: {
-        myLoggerConsole: {type: "console"},
+const app = express();
 
-        archivoWarn: { type:'file', filename:'warn.log' },
-        archivoError: { type:'file', filename:'error.log' },
+app.set("views", "./views");
+app.set("view engine", "ejs");
 
-        loggerWarn:{ type:'logLevelFilter', appender:'archivoWarn', level: 'warn' },
-        loggerError:{ type:'logLevelFilter', appender:'archivoError', level: 'error' }
-    },
-    categories: {
-        default: {appenders: ['myLoggerConsole'], level: "trace"},
-        logWarn:{ appenders:[ 'loggerWarn' ], level: 'all' },
-        logError:{ appenders:[ 'loggerError' ], level: 'all' },
-        produccion: { appenders:[ 'loggerError' ], level:'error' }
-    }
-})
+app.use(express.urlencoded({ extended: true }));
+app.use(
+  session({
+    secret: "seba",
+    resave: false,
+    saveUninitialized: false,
+    rolling: true,
+    cookie: { maxAge: 30000, secure: false, httpOnly: false },
+  })
+);
 
-const loggerConsola = log4js.getLogger('default')
-const loggerWarn = log4js.getLogger('logWarn')
-const loggerError = log4js.getLogger('logError')
+app.use(passport.initialize());
+app.use(passport.session());
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.send("Va Funcionando");
+});
+app.use("/api", bookRouter);
 
-app.get('/:num?', (req, res) => {
-    let num = req.params.num
-
-    // Peticiones recibidas por el  Servidor
-    if(num == 'favicon.ico') {
-        // logger22.warn('No es apto para el browser')
-        loggerWarn.warn('No es apto para el browser')
-        return res.send('ok')
-    }
-
-    // Peticion por ruta inexistente
-    if(!num) {
-        loggerConsola.trace('No viene la data num, default 1')
-        num = 1
-    } else {
-        loggerConsola.info(`Num es ${num}`)
-    }
-
-    // Peticiones de error por mal Numero
-    let  result = 0
-    if(num != 0) {
-        result = 500 / num
-    }else {
-        loggerError.error('El numero tiene que ser distinto de 0')
-    }
-
-    loggerConsola.info(`Result is ${result}`)
-    res.send({result})
-})
-
-app.listen(8080)
+const PORT = process.env.PORT || 8080;
+connectMongo(() => {
+  const server = app.listen(PORT, () => {
+    console.log(`Server running ${PORT} ...`);
+  });
+  server.on("error", (e) => console.log(e));
+});

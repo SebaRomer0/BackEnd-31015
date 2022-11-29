@@ -99,6 +99,9 @@ app.post('/login', passport.authenticate('login', {failureRedirect: '/error-logi
 
 
 
+
+
+
 // Rutas Formulario/Productos
 const product = [
     {id:"1",nombre:"Escuadra", precio:"223 $",foto:"./img/Escuadra.png"},
