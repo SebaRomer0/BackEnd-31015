@@ -3,7 +3,8 @@ const { Router } = express;
 const {
   controlMensajeProdGet,
   controlMensajeProdPost,
-} = require("../controller/controller");
+} = require("../service/service");
+
 
 const bookRouter = new Router();
 
@@ -26,13 +27,11 @@ bookRouter.get("/producto", (req, res) => {
   res.render("producto", { product, mensaje });
 });
 
-bookRouter.post("/mensajes", (req, res) => {
-  controlMensajeProdPost();
-});
 
-bookRouter.get("/mensajes", (req, res) => {
-  controlMensajeProdGet();
-});
+bookRouter.post("/mensajes", controlMensajeProdPost) 
+
+bookRouter.get("/mensajes", controlMensajeProdGet)
+
 
 bookRouter.get("/logout", (req, res) => {
   res.render("fin-de-sesion");

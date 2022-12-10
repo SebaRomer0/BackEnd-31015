@@ -153,12 +153,6 @@ app.get('/login', (req, res) => {
     res.render('sesion')
 })
 
-// app.post('/login-name',(req,res) => {
-//     req.session.usuario = req.body
-//     console.log(req.session.usuario);
-
-// })
-
 // Deslogear
 app.get('/logout', (req, res) => {
     const user = req.session.usuario
@@ -168,11 +162,6 @@ app.get('/logout', (req, res) => {
         else res.send({status: 'Error en la Sesion', body: err})
     })
 })
-
-
-
-
-
 
 
 // Escucha del Servidor

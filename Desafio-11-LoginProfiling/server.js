@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("Va Funcionando");
+  res.send("<h1>Va Funcionando</h1>");
 });
 app.use("/api", bookRouter);
 
