@@ -13,6 +13,8 @@ const { fork } = require('child_process')
 const { match } = require('assert')
 const res = require('express/lib/response')
 
+const routerLogin = require('./router/logeo.resgistro')
+
 
 // Configuracion para Consiga 3
 let visitas = 0
@@ -27,7 +29,7 @@ passport.use('signup', new LocalStrategy(
         Users.findOne({'username': username}, (err, user) => {
             console.log(user);
             if(err) { console.log('error'); return done(err) }
-            if(user) { console.log('Usuario Existe!'); return done(null, false) }
+            if(!user) { console.log('Usuario Existe!'); return done(null, false) }
 
             const newUser = { username, password, name: req.body.name }
             Users.create(newUser, (err, userWithId) => {
@@ -51,7 +53,7 @@ passport.use('login', new LocalStrategy(
     }
 ))
 
-passport.serializeUser((user, done) => done(null, user._id))
+passport.serializeUser((user, done) => {done(null, user._id)})
 passport.deserializeUser((id, done) => Users.findById(id, done))
 
 
@@ -76,6 +78,12 @@ app.set('view engine', 'ejs')
 
 
 //-------------------------- Rutas ------------------------------------
+
+
+
+// app.use('/',routerLogin)
+
+
 
 
 // Inicio Bienvenida

@@ -1,0 +1,121 @@
+/* -------------------Clases Indumentaria Hombre/Mujer---------------------- */
+
+
+.tituloRopa {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+  #contanido {
+    margin-bottom: 30px;
+  }
+  
+  .cart {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+    background-blend-mode: multiply,multiply;
+    border-radius: 15px;
+  }
+  .car-img {
+    height: 250px;
+    margin: 15px;
+  }
+  .producto-carrito {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .product-details {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 6px;
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  }
+  .finaliza {
+    width: 30%;
+    height: 60px;
+    padding: 6%;
+    font-weight: bold;
+  }
+  
+  #remove-product {
+    width: 100px;
+    height: 80px;
+    text-align: center;
+    font-size: 19px;
+  }
+  
+  .total-carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .total {
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 30%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    background: #86c9d1;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .compra-finalizada {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    margin-top: 50px;
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  }
+  
+  .compra-parrafo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 20px;
+    border: 1px, solid, black !important;
+    border-radius: 15px;
+  }
+  
+  .form-tamanio{
+    width: 80%;
+    height: auto;
+  }
+  
+  .datos-parrafo {
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .letra-formulario{
+    color: white;
+    font-size: 20px;
+  }
+  
+  .formulario-ropa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .envio {
+    margin-top: 15px;
+  }
+  
+  .mensaje-final {
+    font-weight: bold;
+    font-size: 25px;
+    padding: 20px;
+    border: 1px, solid, black;
+    border-radius: 15px;
+    margin: 20px;
+    text-align: center;
+  }
+  
+  

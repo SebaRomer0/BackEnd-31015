@@ -31,41 +31,10 @@ routerProducto.get('/',(req,res) =>{
     res.render('producto.ejs', {Productos, mensajeInicial})
 })
 
-// Muestro segun su ID
-routerProducto.get('/:id', (req,res) => {
-    let numero = Number(req.params.id)
 
-    if (isNaN(numero)) {
-        res.status(400)
-        res.json({error: 'El ID no es un numero'})
-
-        return 
-    }
-    if (numero > Productos.length || numero === 0) {
-        res.status(404)
-        res.json({error: 'El ID no existe'})
-
-        return
-    }
-
-    numero--
-    res.json(Productos[numero])
-    
-})
-
-
-// Rutas POST
-
-// 
-routerProducto.get('/almacen/formulario', (req,res) => {
-    res.render('form.ejs', {Productos})
-    
-})
-
-
-routerProducto.post('/almacen/formulario/listado',(req,res) => {    
+routerProducto.post('/api/carrito',(req,res) => {    
         listDB.save(req.body)
-            .then(() => res.redirect('/api/producto/almacen/formulario'))
+            .then(() => res.redirect('/'))
             .catch(e => {
                 console.log(e);
                 res.send('Error al Guardar')
@@ -73,7 +42,7 @@ routerProducto.post('/almacen/formulario/listado',(req,res) => {
 })
 
 
-routerProducto.get('/almacen/formulario/listado',(req,res) => {
+routerProducto.get('/api/carrito',(req,res) => {
     listDB.getData()
     .then( Productos => res.render('listado', { Productos } ))
     .catch(e => {

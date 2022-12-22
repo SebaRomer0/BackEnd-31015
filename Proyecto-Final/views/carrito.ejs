@@ -54,41 +54,6 @@
             <a href="/api/carrito/compra" class="btn btn-primary" href="">Ver Carrito</a>
         </div>
 
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header text-center">
-                        Cargue nuevos productos- Solo Administradores
-                    </div>
-                    <form action="/api/carrito/compra" method="post">
-                        <div class="card-body">
-                            <label class="form-label">ID</label>
-                            <input type="number" name="id" class="form-control" required>
-
-                            <label class="form-label">Nombre</label>
-                            <input type="text" name="nombre" class="form-control">
-
-                            <label class="form-label">Descripcion</label>
-                            <input type="text" name="descripcion" class="form-control">
-
-                            <label class="form-label">Codigo</label>
-                            <input type="number" name="codigo" class="form-control" required>
-
-                            <label class="form-label">Foto URL</label>
-                            <input type="url" name="url" class="form-control" required>
-
-                            <label class="form-label">Precio</label>
-                            <input type="number" name="precio" class="form-control">
-                            <br>
-                            <button type="submit" class="btn btn-primary p-3">Enviar</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-
-
     </div>
 </body>
 </html>

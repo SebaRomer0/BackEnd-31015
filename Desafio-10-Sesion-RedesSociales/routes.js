@@ -16,6 +16,7 @@ function getFailLogin(req,res) {
 }
 
 
+
 // Registro
 function getSignup(req, res) { res.render('registro') }
 
@@ -28,7 +29,6 @@ function getFailSignup(req, res) {
 }
 
 
-
 // Calculos Randoms
 function getRandoms(req,res) {
     res.render('calculo')
@@ -37,9 +37,6 @@ function getRandoms(req,res) {
 function getCalculo(req,res) {
 
 }
-
-
-
 
 module.exports = {
     getInicio,
